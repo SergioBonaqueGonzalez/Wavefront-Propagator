@@ -59,7 +59,7 @@ ISSUES:
 
 - The last advise indicates the specific method he has used to perform the calculation. This beside the first advise identify the part of the software used for calculations.
 
-- When the direct fourier transform propagation method is used, a gemoetrical propagation could also be used. 
+- When the direct fourier transform propagation method is used, a geometrical propagation could also be used (not implemented). 
 
 - The boundary conditions to have a good sampling when using the angular
 method are very complex to implement. So what I have done is to make sure that the sampling is good enough in the object plane and a warning is displaying saying that if the result is made of several copies or has artifacts, the resolution of the detector must to be increased (normally to the following power of 2).
