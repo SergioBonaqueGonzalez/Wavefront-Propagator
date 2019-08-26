@@ -1,7 +1,11 @@
 Methodology for the propagation of a phase in free space, assuming coherent illumination.
+
 Developed by Sergio Bonaque-González, PhD.
+
 sergiob@wooptix.com
+
 www.linkedin.com/in/sergiobonaque
+
 July,2019 - Wooptix S.L.
 
 Basically, you define an incoming phase, a propagation distance, and a detector (defined by its pixel numbers and its length) and you will obtain the intensity image in such a detector.
