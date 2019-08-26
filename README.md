@@ -17,7 +17,7 @@ Its an adaptation of the methods described in:
 - David Voelz - Computational Fourier Optics (2011)
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 It is called in the form of a function of the form:
 [x2,Intensity,Uout]=Propagator_ultimate(lambda,z,phase,pupil,L1,L2,N2)
