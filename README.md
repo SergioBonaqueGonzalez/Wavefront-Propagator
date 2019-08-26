@@ -8,7 +8,7 @@ www.linkedin.com/in/sergiobonaque
 
 July,2019 - Wooptix S.L.
 
-Basically, you define an incoming phase, a propagation distance, and a detector (defined by its pixel numbers and its length) and you will obtain the intensity image in such a detector.
+Basically, you define an incoming phase, a propagation distance, and a detector (defined by its pixels number and its length) and you will obtain the intensity image in such a detector.
 The software will decide the most appropiate method according to the configuration of the system.
 
 Its an adaptation of the methods described in: 
