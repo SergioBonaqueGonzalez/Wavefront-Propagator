@@ -13,7 +13,7 @@ Its an adaptation of the methods described in:
 - David Voelz - Computational Fourier Optics (2011)
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 It is called in the form of a function of the form:
 [x2,Intensity,Uout]=Propagator_ultimate(lambda,z,phase,pupil,L1,L2,N2)
@@ -33,7 +33,7 @@ Intensity = Intensity pattern at the requested z distance
 Uout = Complex phase at the requested z distance
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ISSUES:
 - A comparison with the simpler Fourier transfor method described in Voelz 2011 is also provided beside the final result.
@@ -45,7 +45,7 @@ ISSUES:
 method are very complex to implement. So what I have done is to make sure that the sampling is good enough in the object plane and a warning is displaying saying that if the result is made of several copies or has artifacts, the resolution of the detector must to be increased (normally to the following power of 2).
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 There is a file called "Example.m" that you can use for testing purposes.
 
@@ -64,7 +64,7 @@ N2=2^8;%number of grid points in the detector
 ![My image1](/imgs/Example_Image.png)   
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 I am open to include any request or contribution. Do not forget to cite my work if you use it!
 
