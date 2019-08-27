@@ -28,11 +28,11 @@ lambda=wavelength in meters
 
 z=propagation distance in meters
 
-phase=incoming phase defined at the exit pupil 
+phase=matrix containing the incoming phase defined at the exit pupil 
 
-pupil=Exit pupil where the phase is defined
+pupil=matrix containing the exit pupil where the phase is defined
 
-L1=Length of the object space in meters (i.e. length of the surface containing the pupil)
+L1=Length of the object space in meters (i.e. length of the matrix containing the wavefront)
 
 L2=Length of the image space in meters (i.e. length of the CCD)
 
