@@ -1,4 +1,4 @@
-Methodology for the propagation of a phase in free space, assuming coherent illumination.
+Methodology for the propagation of a wavefront phase defined in a square-shaped matrix in free space, assuming coherent illumination.
 
 Developed by Sergio Bonaque-González, PhD.
 
