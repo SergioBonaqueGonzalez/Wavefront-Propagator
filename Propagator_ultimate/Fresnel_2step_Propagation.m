@@ -172,7 +172,7 @@ else
                 phase=object.phase;
             end
             
-            fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
+            fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nWARNING:If multiple copys or artifacts are clearly visible, increase virtually the resolution of the detector.\n',n); %valid for short propagations
             z = (1:n) * config.z / n;
             Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
             [x2, Uout] = ang_spec_multi_prop_vac (Uin, config.k, object.delta, image.delta, z);
@@ -229,7 +229,7 @@ else
             phase=object.phase;
         end
         
-        fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
+        fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nWARNING:If multiple copys or artifacts are clearly visible, increase virtually the resolution of the detector.\n',n); %valid for short propagations
         z = (1:n) * config.z / n;
         Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
         [x2, Uout] = ang_spec_multi_prop_vac (Uin, config.k, object.delta, image.delta, z);
