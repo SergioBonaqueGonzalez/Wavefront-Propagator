@@ -21,7 +21,7 @@ OUTPUTS:
 	x2 - Length of the side of the image plane.  
 	Uout - observed field
 %}
-fprintf('FRAUNHOFER PROPAGATION\n'); %valid for very long propagations
+fprintf('--Fraunhofer propagation--\n'); %valid for very long propagations
 
 % SAMPLING CONSTRAINS IN OBJECT AND IMAGE PLANES
 %the chirp function will be adequately sampled in the observation plane if:
@@ -48,7 +48,7 @@ if M<=config.resolution_limit
 else
     M=config.resolution_limit;
     if M_>=config.resolution_limit
-        fprintf('More resolution limit is required for accurate propagation.\n');
+        fprintf('WARNING. More resolution limit is required for accurate propagation.\n');
     end
     fprintf('Incoming phase has been resized to %ix%i because sampling constrains in object plane.\n',M,M);
     [first, last]= get_fist_last_non_zero_index(object.pupil);

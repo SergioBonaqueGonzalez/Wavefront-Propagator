@@ -67,7 +67,7 @@ if FresnelNumber>1500 %Value obtained experimentally
     end
     Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
     [~, Uout]= propTF(Uin, config.lambda, object.delta, config.z);
-    fprintf('DIRECT TRANSFORM PROPAGATION. SIMPLE INTERPOLATION TO FIT THE DETECTOR\n'); %valid for very short propagations
+    fprintf('--Direct transform propagation. Simple interpolation to fit the detector--\n'); %valid for very short propagations
     x2=-object.L/2:object.delta:object.L/2-object.delta;
     if object.L>image.L
         for i=1:length(x2)
@@ -115,7 +115,7 @@ else
             end
             
             Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
-            fprintf('FRESNEL TWO-STEP PROPAGATION\n'); %valid for long propagations
+            fprintf('--Fresnel two-step propagation--\n'); %valid for long propagations
             [x2, Uout]= two_step_prop(Uin, config.lambda, object.delta, image.delta, dz);
             if image.N<N_Fresnel
                 Uout(end-m+1:end,:)=[];
@@ -172,12 +172,12 @@ else
                 phase=object.phase;
             end
             
-            fprintf('ANGULAR SPECTRUM METHOD WITH %i PARTIAL PROPAGATIONS\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
+            fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
             z = (1:n) * config.z / n;
             Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
             [x2, Uout] = ang_spec_multi_prop_vac (Uin, config.k, object.delta, image.delta, z);
-            if image.N<N_Angular
-                m=floor((N_Angular-image.N)/2);
+            if image.N<length(Uout)
+                m=floor((length(Uout)-image.N)/2);
                 Uout(end-m+1:end,:)=[];
                 Uout(:,end-m+1:end)=[];
                 Uout(1:m,:)=[];
@@ -194,7 +194,7 @@ else
                 end
                     
             else
-                m=N_Angular/image.N;
+                m=length(Uout)/image.N;
                 x2=x2*m;
             end
         end
@@ -229,12 +229,12 @@ else
             phase=object.phase;
         end
         
-        fprintf('ANGULAR SPECTRUM METHOD WITH %i PARTIAL PROPAGATIONS\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
+        fprintf('--Angular spectrum method with %i partial propagations--\nThe analysis of proper resolution in the detector for angular propagation is complex.\nIf multiple copies or artifacts are clearly visible, increase the resolution of the detector.\n',n); %valid for short propagations
         z = (1:n) * config.z / n;
         Uin = pupil.*exp(config.k*1i.*phase); %complex phase screen
         [x2, Uout] = ang_spec_multi_prop_vac (Uin, config.k, object.delta, image.delta, z);
-        if image.N<N_Angular
-            m=floor((N_Angular-image.N)/2);
+        if image.N<length(Uout)
+            m=floor((length(Uout)-image.N)/2);
             Uout(end-m+1:end,:)=[];
             Uout(:,end-m+1:end)=[];
             Uout(1:m,:)=[];
@@ -249,8 +249,9 @@ else
                 x2(:,end)=[];
                 x2(end,:)=[];
             end
+            
         else
-            m=N_Angular/image.N;
+            m=length(Uout)/image.N;
             x2=x2*m;
         end
     end

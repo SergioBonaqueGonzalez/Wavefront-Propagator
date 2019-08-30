@@ -32,7 +32,8 @@ ISSUES:
 - When the direct fourier transform propagation method is used, a gemoetrical propagation could also be used. 
 - The boundary conditions to have a good sampling when using the angular
 method are very complex to implement. So what I have done is to make sure that the sampling is good enough in the object plane and a warning is displaying saying that if the result is made of several copies or has artifacts, the resolution of the detector must to be increased (normally to the following power of 2).
-
+- Fraunhoffer propagation is not often required. So, the result is placed
+in an arbitrary detector with a minimim size and pixel size to adequately perform the simulations 
 %}
 warning('off', 'Images:initSize:adjustingMag');
 
@@ -61,27 +62,31 @@ When light propagates very far from its source aperture, the optical field in th
 According to Goodman, “very far” is defined by the inequality:
 %}
 if config.z>2*(object.L^2)/config.lambda
-    method='fraunhofer'
+    method='fraunhofer';
 elseif config.z>=object.L*object.delta/config.lambda
     if object.delta==image.delta
-        method='fresnel_1'
+        method='fresnel_1';
     else
-        method='fresnel_2'
+        method='fresnel_2';
     end
 elseif config.z<object.L*object.delta/config.lambda
-    method='angular'
+    method='angular';
 end
 
 
 if strcmp(method,'fraunhofer')==1
+    fprintf('FraunhoferPropagation.m\n')
     [x2,Uout]=FraunhoferPropagation(config,object);
 % elseif strcmp(method,'direct_transform')==1 
 %     [x2,Uout]=direct(config,object,image);
 elseif strcmp(method,'fresnel_1')==1
+    fprintf('Fresnel_1step_Propagation.m\n')
     [x2,Uout]=Fresnel_1step_Propagation(config,object,image);
 elseif strcmp(method,'fresnel_2')==1
+    fprintf('Fresnel_2step_Propagation.m\n')
     [x2,Uout]=Fresnel_2step_Propagation(config,object,image);
 elseif strcmp(method,'angular')==1
+    fprintf('ang_prop.m\n')
     [x2, Uout] = ang_prop(config,object,image);
 end
 
@@ -89,31 +94,22 @@ Intensity = (abs(Uout).^2);
 figure
 if strcmp(method,'fraunhofer')==1
     imagesc(x2,x2,nthroot(Intensity,3));
-    hold on;
-    % Placing the detector:
-%     for i=1:length(x2)
-%         if x2(i)>=-image.L/2
-%             first=x2(i);
-%             break;
-%         end
-%     end
-%     for i=1:length(x2)
-%         if x2(i)>=image.L/2
-%             last=x2(i);
-%             break;
-%         end
-%     end
-%     rectangle('Position',[first,first,last,last],'LineWidth',2,'LineStyle','--','EdgeColor', 'r')
-    title('Fraunhofer pattern. Red square represents the area of the detector')
+    xlabel('m')
+    ylabel('m')
+    title('Fraunhofer pattern in an arbitrary detector')
+    axis on
+    colormap('gray')
+    drawnow();
 else
-imshow(Intensity,[],'XData',x2(1,:),'YData',x2(1,:))
+    imshow(Intensity,[],'XData',x2(1,:),'YData',x2(1,:))
+    xlabel('m')
+    ylabel('m')
+    title('Intensity pattern in the detector')
+    axis on
+    colormap('gray')
+    drawnow();
 end
-xlabel('m')
-ylabel('m')
-title('Intensity pattern in the detector')
-axis on
-colormap('gray')
-drawnow(); 
+
 
 
 %%
