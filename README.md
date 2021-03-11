@@ -2,7 +2,7 @@ Methodology for the propagation of a wavefront phase defined in a square-shaped 
 
 Developed by Sergio Bonaque-González, PhD.
 
-sergiob@wooptix.com
+sergio.bonaque.gonzalez@gmail.com
 
 www.linkedin.com/in/sergiobonaque
 
